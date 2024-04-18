@@ -1,0 +1,68 @@
+<div class="container py-4">
+    <section class="header mx-auto text-center">
+        <h1>Update Course: {{ course.name }}</h1>
+    </section>
+    <section class="form-cont">
+        <form id="update-form">
+            <input hidden id="course-id" value="{{ course._id }}">
+            <div class="form-group my-2">
+                <label for="name">Course Name</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Enter Course Name" value="{{ course.name }}">
+            </div>
+            <div class="form-group my-2">
+                <label for="description">Course Description</label>
+                <textarea name="description" id="description" class="form-control" placeholder="Enter Course Description">{{ course.description }}</textarea>
+            </div>
+            <div class="form-group my-2">
+                <label for="area">Subject Area</label>
+                <input type="text" name="area" id="area" class="form-control" placeholder="Subject Area" value="{{ course.subjectArea }}">
+            </div>
+            <div class="form-group my-2">
+                <label for="credits">Credits</label>
+                <select id="credits" class="form-control">
+                    <option value="1" {{#ifEquals course.credits 1}}selected{{/ifEquals}}>1</option>
+                    <option value="2" {{#ifEquals course.credits 2}}selected{{/ifEquals}}>2</option>
+                    <option value="3" {{#ifEquals course.credits 3}}selected{{/ifEquals}}>3</option>
+                    <option value="4" {{#ifEquals course.credits 4}}selected{{/ifEquals}}>4</option>
+                </select>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-dark">
+        </form>
+    </section>
+</div>
+
+<script>
+document.getElementById('update-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    console.log('Submitting form');
+    let success = false;
+    try {
+        const formData = new URLSearchParams();
+        formData.append('id', document.getElementById('course-id').value);
+        formData.append('name', document.getElementById('name').value);
+        formData.append('description', document.getElementById('description').value);
+        formData.append('area', document.getElementById('area').value);
+        formData.append('credits', document.getElementById('credits').value);
+
+        const response = await fetch('/courses', { 
+            method: 'PUT', 
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: formData
+        });
+
+        if (response.ok) {
+            success = true;
+            alert('Course updated successfully!'); // success message
+            setTimeout(() => window.location.href = '/courses', 1000); // Redirect after 1 second
+        } else {
+            throw new Error('Failed to update the course');
+        }
+    } catch(err) {
+        console.error(`ERROR SUBMITTING UPDATE FORM: ${err}`);
+        alert(`Error updating course: ${err.message}`); // error message
+    }
+    return success;
+});
+</script>

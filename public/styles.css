@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --light: #f2f2f2;
+    --dark: #212121;
+    --ivy-green: #006648;
+    --ivy-green-light: #8dc63f;
+}
+
+/*Base Styles*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: rgba(104, 160, 123, 0.71);
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    margin-top: auto;
+}
+/*End Base Styles*/
+
+/*Forms*/
+.form-group {
+    margin: 1rem 0;
+}
+/*End Forms*/
+
+/*Text*/
+* {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+/*Main Template*/
+
+/*End Templates*/
+
+/*Pages*/
+/*Home Page*/
+.home-hero {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('./assets/hero-img.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--light);
+    min-height: 100vh;
+}
+
+/* Modify the background color */
+.navbar-custom {
+    background-color: #006400; /* dark green */
+}
+
+/* Modify the text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text,
+.navbar-custom .nav-link {
+    color: #ffffff; /* white */
+}
+
+.sidenav {
+    background-color: #f1f1f1;
+    height: 100%;
+}
+/*End Home Page*/
+/*End Pages*/
+
+ /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+ .row.content {min-height: 100vh}
+
+ /* Set gray background color and 100% height */
+ .sidenav {
+   background-color: #f1f1f1;
+   min-height: 100vh;
+ }
+
+ 

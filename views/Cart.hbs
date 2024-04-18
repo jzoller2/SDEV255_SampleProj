@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav" style='height:900px;'>
+      <h2>Group 2 Course Registration</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li ><a href="dashboard.hbs">Home</a></li>
+        <li class="active"><a href="enroll.hbs">Enroll Course</a></li>
+        <li><a href="dropCourse.hbs">Drop Course</a></li>
+        <li><a href="schedule.hbs">Enrolled Courses</a></li>
+        <li><a href="cart.hbs">Course Cart</a></li>
+        <li><a href="logout.hbs">Logout</a></li>
+      </ul><br>
+    </div>
+
+ <div class="col-sm-9" style="background-color:white">
+	<br>
+	<br>
+	<div class='container' style='width:100%;'>
+		<button type="button" onclick="return buttonClicked()">Delete Row</button>
+		</br></br>
+		<table id='theTable' class='display'>
+			<thead>
+			  <tr>
+				<th class='col-5'>Course Id</th>
+				<th class='col-5'>Course Name</th>
+				<th class='col-5'>Description</th>
+				<th class='col-5'>Available Seats</th>
+				<th class='col-5'>Status</th>
+			  </tr>
+			</thead>
+		</table>
+	</div>	
+	
+	 <br><br>
+	 <button type="button" class="button button2" onclick="return registerClicked()">Register</button>
+    </div>
+  </div>
+</div>

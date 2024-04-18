@@ -1,0 +1,24 @@
+<main class="container py-4">
+  <h1 class="my-2">Courses</h1>
+  {{#each courses}}
+    <div class="my-2 p-2 border bg-light rounded shadow">
+      <h3>{{this.name}}</h3>
+      <p>{{this.description}}</p>
+      <a class="btn btn-dark" href="/courses/{{this._id}}">Learn More</a>
+    </div>
+  {{/each}}
+  <script>
+    document.querySelectorAll('a.delete').forEach(trashcan => {
+      trashcan.addEventListener('click', (e) => {
+        e.preventDefault()
+        const endpoint = `/courses/${trashcan.dataset.doc}`
+        fetch(endpoint, {
+          method: 'DELETE',
+        })
+        .then(response => response.json())
+        .then(data => window.location.href = data.redirect)
+        .catch(err => console.log(err))
+      })
+    })
+  </script>
+</main>
